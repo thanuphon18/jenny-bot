@@ -2,19 +2,21 @@
 
 echo "test";
 
-// $menu = $_POST['text'];
-// echo $_POST['user_name'];
-// $servername = "localhost";
-// $username = "root";
-// $password = "22012016";
-// $dbname = "drink";
+$menu = $_POST['text'];
+echo $_POST['user_name'];
+$servername = "172.16.20.113";
+$username = "thanuphon";
+$password = "thanuphon";
+$dbname = "thanuphon";
 
-// // Create connection
-// $conn = new mysqli($servername, $username, $password, $dbname);
-// // Check connection
-// if ($conn->connect_error) {
-//     die("Connection failed: " . $conn->connect_error);
-// }
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} else {
+    echo "Connect success";
+}
 
 
 
