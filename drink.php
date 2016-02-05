@@ -22,12 +22,12 @@ if ($menu == "order") {
     header("location:https://slack.com/api/chat.postMessage?token=xoxp-18929953686-19035559206-19139930727-5a795443c2&channel=C0K11K9B4&text=วันนี้กินน้ำอะไร&username=jenny");
 } elseif ($menu == 'list') {
 
-    $sql = "SELECT drink_name name FROM drink where date_time like '$today'";
+    $sql = "SELECT drink_name, name FROM drink where date_time like '$today'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
-            echo "รายการ : " . $row["drink_name"] . " -- " . $row["name"] .  " \n";
+            echo "รายการที่สั่ง : " . $row["drink_name"] . " -- " . $row["name"] .  " \n";
         }
     }
 
@@ -36,7 +36,7 @@ if ($menu == "order") {
     VALUES ('$menu', '$name', '$today')";
 
     if ($conn->query($sql) === TRUE) {
-        echo "รายการ ". $menu ."เรียบร้อย \n";
+        echo "บันทึกรายการ ". $menu ." เรียบร้อย \n";
     } else {
         echo "Error: " . $sql  . $conn->error;
     }
